@@ -8,6 +8,8 @@ Curses, Blurses. A simple framework to make Curses-based applications for the te
 - Automatic menu generation
 - Modular application structure
 
+![Screenshot](images/blurses_example.png)
+
 ### Getting started
 
 To use Blurses, simply clone the repo, and place a copy of the `blurses` directory in your project's directory. Import using: 
