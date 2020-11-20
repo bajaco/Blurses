@@ -56,6 +56,10 @@ blurses.bind('Sort', sort_files)
 blurses.bind('Write', write_files)
 ```
 
+The first argument is the display name for the menu, the second is the function to bind. *The display name for the first supplied function is ignored. Set it to anything.* This is because the first function is always assumed to be the main menu, which is not displayed on the menu.
+
+Binding functions automatically generates the menu object supplied to the functions, which can be rendered using the `window.draw()` method.
+
 To run, simply: 
 
 `blurses.run()`
