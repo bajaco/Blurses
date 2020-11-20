@@ -4,8 +4,8 @@ Curses, Blurses. A simple framework to make Curses-based applications for the te
 
 - Relative positioning by percentages
 - Vertical and horizontal centering
-- Word Wrapping
-- Automatic Menu Generation
+- Word wrapping
+- Automatic menu generation
 - Modular application structure
 
 ### Getting started
