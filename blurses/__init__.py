@@ -130,12 +130,21 @@ class Menu:
 
 
     def input(self, key):
-        if key == curses.KEY_UP:
+        #with open('keycodes.txt', 'a') as f:
+            #f.write('\n%s: %s' % (chr(key), key))
+        # =================================
+        # Navigation
+        if (key == curses.KEY_UP) or (key == ord('k')):
             if self.active - 1 >= 1:
                 self.active -= 1
-        elif key == curses.KEY_DOWN:
+        elif (key == curses.KEY_DOWN) or (key == ord('j')):
             if self.active < len(self.options) - 1:
                 self.active += 1
+        # =================================
+        # Search
+        elif key == ord('/'):
+            return self.active
+        # =================================
         elif key == curses.KEY_ENTER or key == 10: 
             return self.active
         return 0
