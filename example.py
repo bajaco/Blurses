@@ -1,7 +1,7 @@
 from blurses import Blurses
 from example_pages import pages
 
-def menu(window, menu):
+def menu(window, menu, state):
     title = ['Blurses Example']
     description = '''Welcome to the Blurses example app.
     Blurses is an easy to use Curses framework that allows for
@@ -16,11 +16,13 @@ def menu(window, menu):
         window.draw(title, top=0, left=2)
         window.wrap(description, width=80, vcenter=True, left=10)
         window.draw(menu(), bottom=5, left=5)
+        if state:
+            window.wrap(state, bottom=0, hcenter=True)
         mode = menu.input(window.getch())
-    return mode
+    return mode, 'Last mode: Menu'
 
 
-def instructions(window, menu):
+def instructions(window, menu, state):
         
     press = 'Press enter to continue: '
 
@@ -31,12 +33,13 @@ def instructions(window, menu):
             window.update()
             window.wrap(page, width=90, left=5, top=5)
             window.wrap(press, left=5, bottom=5)
-
+            if state:
+                window.wrap(state, bottom=0, hcenter=True)
             key = window.getch()
     
-    return 0
+    return 0, 'Last mode: Instructions'
 
-def pause(window, menu):
+def pause(window, menu, state):
 
     description = '''The window object also features pause() and 
     resume() methods in order to temporarily return the application to
@@ -54,7 +57,8 @@ def pause(window, menu):
         window.update()
         window.wrap(description, width=90, left=5, top=5)
         window.wrap(press, left=5, bottom=5)
-
+        if state:
+            window.wrap(state, bottom=0, hcenter=True)
         key = window.getch()
     window.pause()
     print('Blurses has been paused.\n')
@@ -75,9 +79,10 @@ def pause(window, menu):
         window.wrap(tr, top=0, right=0)
         window.wrap(bl, bottom=0, left=0)
         window.wrap(br, bottom=0, right=0)
-        
+        if state:
+            window.wrap(state, bottom=0, hcenter=True)
         key = window.getch()
-    return 0
+    return 0, 'Last Mode: Pause and Resume.'
 
 
 blurses = Blurses()

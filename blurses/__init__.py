@@ -145,6 +145,7 @@ class Blurses:
         self.menu = Menu()
         self.functions = []
         self.mode = 0
+        self.state = None
     
     def bind(self, name, func):
         self.menu.add(name)
@@ -157,5 +158,7 @@ class Blurses:
     def main(self, stdscr):
         func = self.functions[self.mode]
         window = Window(stdscr)
-        self.mode = func(window, self.menu)
+        res = func(window, self.menu, self.state)
+        self.mode = res[0]
+        self.state = res[1]
         

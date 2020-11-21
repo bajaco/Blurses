@@ -10,12 +10,13 @@ pages = [
     create a function for each. The first function will not be included
     in the menu. It is ideal to make this your main menu function: 
     SKIP SKIP
-    def menu(window, menu): 
+    def menu(window, menu, state): 
     SKIP SKIP 
-    Note that the function requires two arguments, window and menu.
+    Note that the function requires three arguments, window, menu, and state.
     These are objects supplied by Blurses that allow you to
-    position elements and define behavior. All functions used with
-    Blurses must have window and menu arguments.''',
+    position elements and define behavior. State is passed as a return 
+    statement of every function to persist data between functions. 
+    All functions used with Blurses must have these three arguments.''',
 
     
 
@@ -91,8 +92,12 @@ pages = [
     selected, 1 is returned, corresponding to function 1. Our menu is function
     0, so we can return this number to go to the selected menu option: SKIP SKIP
     return mode SKIP SKIP
-    Note, all functions used with Blurses must return an int. Normally this will
-    be 0, which signals a return to the main menu.''',
+    Note, all functions used with Blurses must return an int, and state. 
+    Normally the int will be 0, which signals a return to the main menu.
+    State can be as simple as None, or a complex data type of your choosing. 
+    This is simply data that you choose to pass to your next function. Try
+    to maintain a consisten data structure for state.
+    ''',
 
     
 
