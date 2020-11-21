@@ -157,7 +157,7 @@ while menu_selection == 0:
     window.draw(menu(), bottom=5, left=5)
     mode = menu.input(window.getch())
 
-return mode
+return mode, None
 ```
 The `return mode` statement is not part of the loop. If terminating the function this selects the next function for Blurses to execute.
 
