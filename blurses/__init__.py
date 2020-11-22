@@ -89,6 +89,14 @@ class Window:
             mode = text[1]
         max_width = int(round(width / 100 * self.width))
         words = text.split()
+        splitwords = words
+        words = []
+        for word in splitwords:
+            if len(word) > max_width - 1:
+                words.append(word[:max_width-1])
+                words.append(word[max_width-1:])
+            else:
+                words.append(word)
         lines = []
         line = ''
         for word in words:
