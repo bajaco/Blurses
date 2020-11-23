@@ -29,22 +29,22 @@ A Blurses application is very simple. It consists of functions that contain appl
 ```
 def main_menu(window, menu, state):
     # Your code here
-    return menu_selection
+    return menu_selection, None
 
 
 def list_files(window, menu, state):
     # Your code here
-    return 0
+    return 0, None
 
 
 def sort_files(window, menu, state):
     # Your code here
-    return 0
+    return 0, None
 
 
 def write_files(window, menu, state):
     # Your code here
-    return 0
+    return 0, None
 ```
 
 Note that Blurses functions must be created with window, menu and state arguments. These are objects injected by blurses that provide access to menu selection and drawing functionality. State additionally allows you to persist data between functions. Blurses functions must also return an int, along with state for the next function. This int corresponds to the next function to execute. For example, all of the previous functions return to the main menu, except for the main menu function, which chooses a different function to return to. State can be as simple as None, or a complex data type of your choosing. It depends on how much data your application needs to persist between functions.
