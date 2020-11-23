@@ -139,7 +139,7 @@ class Menu:
             return self.active
         elif key == ord('q'):
             # Quit
-            return 3
+            return len(self.options) - 1
         return 0
             
 class Blurses:
