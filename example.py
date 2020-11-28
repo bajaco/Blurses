@@ -28,7 +28,7 @@ def instructions(window, menu, state):
 
     for page in pages: 
         key = 0
-        while key != 10:
+        while key != 10 and key != 261 and key != ord('l'):
             window.clear()
             window.update()
             window.wrap(page, width=90, left=5, top=5)
